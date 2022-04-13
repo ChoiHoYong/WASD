@@ -19,7 +19,7 @@ public class TitleUI : MonoBehaviour
         if( Input.anyKeyDown)
         {
             // 씬을 이동해주는 함수입니다.
-            SceneManager.LoadScene("TownScene");
+            SceneManager.LoadScene("MainScene");
             //SceneManager.LoadSceneAsync("TownScene"); 동기
         }
     }
