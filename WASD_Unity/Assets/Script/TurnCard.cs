@@ -15,18 +15,19 @@ public class TurnCard : MonoBehaviour
 
     RectTransform rectTransform;
     Image cardImage;
-
+    public Sprite[] cards;//스프라이트 배열 생성
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         cardImage = GetComponent<Image>();
+        
     }
 
     private void Start()
     {
         //spriteCardFront = GetComponent<Sprite>();
-
+        
         if (isFront)
         {
             cardImage.sprite = spriteCardFront;
@@ -68,7 +69,8 @@ public class TurnCard : MonoBehaviour
 
         if (choice == false)
         {
-            cardImage.sprite = spriteCardBack;
+            cardImage.sprite = cards[Random.Range(0, 3)];//0~2번째 배열에 들어있는 사진으로 바꾸기
+            //cardImage.sprite = spriteCardBack;
             choice = true;
         }
         isFront = !isFront;
