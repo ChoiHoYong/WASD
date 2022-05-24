@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     Controller controller;
-    HealthPoint healthPoint;
+    CharacterStat characterStat;
     static Fade fade;
     void GameStart()
     {
@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
             // Prefabs/Archer 파일을 로드합니다.
             // .prefab이라는 텍스트 파일을 읽어들여서 텍스트 파일을 분석해서
             // 실질적인 리소스( 3d 모델링, 이미지, 애니메이션 )를 로드하는 역할을 합니다.
-            controller = Resources.Load<Controller>("Prefabs/Archer");
+            controller = Resources.Load<Controller>("Prefabs/Player");
 
             Transform t = controller.transform.Find("M03");
             t.gameObject.SetActive(false);
@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
             Camera.main.transform.localPosition = Vector3.zero;
             Camera.main.transform.rotation = Quaternion.identity;
             controller.Init();
-            healthPoint = controller.GetComponent<HealthPoint>();
+            characterStat = controller.GetComponent<CharacterStat>();
 
         }
         IngameUI ingameUI = GameObject.FindObjectOfType<IngameUI>();
@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(healthPoint == null || healthPoint.IsDead)
+        if(characterStat == null || characterStat.IsDead)
         {
             enabled = false;
         }

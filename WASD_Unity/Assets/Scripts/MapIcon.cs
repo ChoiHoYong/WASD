@@ -27,7 +27,7 @@ public class MapIcon : MonoBehaviour
     {
         Minimap minimap = GameObject.FindObjectOfType<Minimap>();
 
-        Vector3 uiPos = UIHelper.WorldPosToMapPos(target.position, minimap.worldWidth, minimap.worldDepth, minimap.uiMapWidth, minimap.uiMapHeigth);
+        Vector3 uiPos = UIHelper.WorldPosToMapPos(target.position, minimap.worldWidth, minimap.worldDepth, minimap.uiMapWidth, minimap.uiMapHeight);
         transform.localPosition = uiPos;
     }
 }

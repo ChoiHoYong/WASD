@@ -13,7 +13,7 @@ public class StageManager : MonoBehaviour
     public List<SpawnInfo> spawnList = new List<SpawnInfo>();
 
     // 생성된 몬스터 개수
-    public List<HealthPoint> monsterList = new List<HealthPoint>();
+    public List<CharacterStat> monsterList = new List<CharacterStat>();
 
     private float elapsedTime = 0;
     public List<Transform> spawnPoint = new List<Transform>();
@@ -21,11 +21,11 @@ public class StageManager : MonoBehaviour
     // 일정한 시간이 지난뒤에 실행될 수 있도록 변수를 추가하였습니다.
     private bool update = false;
 
-    public void ReleaseMonster(HealthPoint healthPoint)
+    public void ReleaseMonster(CharacterStat characterStat)
     {
-        if(monsterList.Contains(healthPoint))
+        if(monsterList.Contains(characterStat))
         {
-            monsterList.Remove(healthPoint);
+            monsterList.Remove(characterStat);
             // 몬스터를 삭제하고 남은 개수가 0이라면 스테이지 클리어 처리합니다.
             if(monsterList.Count == 0)
             {
@@ -84,7 +84,7 @@ public class StageManager : MonoBehaviour
             spawnList.RemoveAt(0);
 
             // 몬스터를 저장합니다.
-            monsterList.Add(t.GetComponent<HealthPoint>());
+            monsterList.Add(t.GetComponent<CharacterStat>());
         }
     }
 }

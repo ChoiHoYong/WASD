@@ -1195,7 +1195,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 154207926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3da1c6cc9c9495c47a5dd69497fd86f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f654cabc36ba054c95f650026f464a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0, b: 0, a: 1}
@@ -1346,13 +1346,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 178654932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 338d011bfcbda4e44b62a8b6644f8925, type: 3}
+  m_Script: {fileID: 11500000, guid: 82b4d36ff5cf7ce4dbb6989c586b16c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   worldWidth: 0
   worldDepth: 0
   uiMapWidth: 0
-  uiMapHeigth: 0
+  uiMapHeight: 0
   background: {fileID: 0}
   mapIcons: []
   playerIcon: {fileID: 0}
@@ -2449,7 +2449,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 371732935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3da1c6cc9c9495c47a5dd69497fd86f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f654cabc36ba054c95f650026f464a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0, b: 0, a: 1}
@@ -5396,7 +5396,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 740216678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3da1c6cc9c9495c47a5dd69497fd86f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f654cabc36ba054c95f650026f464a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0, b: 0, a: 1}
@@ -12879,7 +12879,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1665731305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3da1c6cc9c9495c47a5dd69497fd86f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f654cabc36ba054c95f650026f464a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0, b: 0, a: 1}
@@ -13360,7 +13360,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1700331777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3da1c6cc9c9495c47a5dd69497fd86f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f654cabc36ba054c95f650026f464a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0, b: 0, a: 1}

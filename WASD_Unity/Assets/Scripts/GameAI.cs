@@ -66,8 +66,8 @@ public class GameAI : MonoBehaviour, IFramework
     private Model model;
 
     // 자신의 헬스 포인트
-    private HealthPoint healthPoint;
-    public HealthPoint target;
+    private CharacterStat characterStat;
+    public CharacterStat target;
 
     [SerializeField]
     // 공격 간격 시간
@@ -99,14 +99,14 @@ public class GameAI : MonoBehaviour, IFramework
     {
         if(other.tag == "Arrow")
         {
-            if (healthPoint != null)
+            if (characterStat != null)
             {
                 model.SetTrigger("Damage");
-                healthPoint.point--;
+                characterStat.point--;
                 // 타격 애니메이션을 출력
-                if (healthPoint.point <= 0)
+                if (characterStat.point <= 0)
                 {
-                    healthPoint.Die();
+                    characterStat.Die();
                 }
             }
         }
@@ -118,17 +118,17 @@ public class GameAI : MonoBehaviour, IFramework
             float distance = Vector3.Distance(target.transform.position, transform.position);
             if(distance <= attackDistance)
             {
-                HealthPoint healthPoint = target.GetComponent<HealthPoint>();
+                CharacterStat characterStat = target.GetComponent<CharacterStat>();
                 IngameUI ingameUI = GameObject.FindObjectOfType<IngameUI>();
-                ingameUI.DecreaseHP(healthPoint.point - 1);
-                --healthPoint.point;
+                ingameUI.DecreaseHP(characterStat.point - 1);
+                --characterStat.point;
                 Model model = target.GetComponent<Model>();
                 model.SetTrigger("Damage");
 
-                if(healthPoint.point <= 0)
+                if(characterStat.point <= 0)
                 {
                     //Destroy(target.gameObject);
-                    healthPoint.Die();
+                    characterStat.Die();
                     //target.SetDead(true);
                     target = null;
 
@@ -218,7 +218,7 @@ public class GameAI : MonoBehaviour, IFramework
         // 타겟과의 거리를 계산합니다.
         float distance = Vector3.Distance(target.transform.position, transform.position);
         // 두 모델의 반경값을 구합니다.
-        float radius = healthPoint.Radius + target.Radius;
+        float radius = characterStat.Radius + target.Radius;
 
         // 두 모델링 사이의 거리가 서로 중복되었다면 중복되지 않도록 처리하는 코드
         if(distance <= radius)
@@ -260,14 +260,14 @@ public class GameAI : MonoBehaviour, IFramework
             model.Init();
         GameObject enemyObj = GameObject.FindGameObjectWithTag(targetTag);
         if (enemyObj != null)
-            target = enemyObj.GetComponent<HealthPoint>();
+            target = enemyObj.GetComponent<CharacterStat>();
         // 시작되자마자 대기 상태로 놓습니다.
         model.SetFloat("Forward", 0);
         current = CharState.Idle;
         // 모델 컴포넌트를 받아서 사용할 수 있도록 처리합니다.
-        healthPoint = GetComponent<HealthPoint>();
-        if (healthPoint != null)
-            healthPoint.SetModel(model);
+        characterStat = GetComponent<CharacterStat>();
+        if (characterStat != null)
+            characterStat.SetModel(model);
 
         //slashParticle = GetComponentInChildren<ParticleSystem>();
         //slashParticle.Stop();
@@ -364,6 +364,6 @@ public class GameAI : MonoBehaviour, IFramework
         // 2초뒤에 파괴되도록 처리합니다.
         Destroy(gameObject,2.0f);
         // 캐릭터를 죽은 상태로 변경합니다.
-        healthPoint.SetDead(true);
+        characterStat.SetDead(true);
     }
 }

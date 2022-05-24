@@ -46,10 +46,4 @@ public class PostProcessController : MonoBehaviour
         // DepthOfField효과를 실행합니다.
         StartCoroutine(IEDepthOfField(speed, start, end));
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            ExecuteDepthOfField(1, 10, 0.1f);
-    }
 }

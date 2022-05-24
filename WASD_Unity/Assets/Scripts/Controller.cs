@@ -45,7 +45,7 @@ public class Controller : MonoBehaviour, IFramework
     // 타겟이 없을때 발사될 목적지 입니다.
     private Transform dummyTarget;
 
-    private HealthPoint healthPoint;
+    private CharacterStat characterStat;
 
     [SerializeField]
     private float moveSpeed = 5;
@@ -58,7 +58,7 @@ public class Controller : MonoBehaviour, IFramework
             Destroy(t.gameObject, 2.0f);
 
         // 캐릭터를 죽은 상태로 변경합니다.
-        healthPoint.SetDead(true);
+        characterStat.SetDead(true);
         PostProcessController postController = GameObject.FindObjectOfType<PostProcessController>();
         postController.ExecuteDepthOfField(1.0f, 10, 1);
 
@@ -97,10 +97,10 @@ public class Controller : MonoBehaviour, IFramework
         }
 
         // 모델 컴포넌트를 받아서 사용할 수 있도록 처리합니다.
-        healthPoint = GetComponent<HealthPoint>();
-        if (healthPoint != null)
+        characterStat = GetComponent<CharacterStat>();
+        if (characterStat != null)
         {
-            healthPoint.SetModel(model);
+            characterStat.SetModel(model);
         }
         // 현재 하이어라키내에 배치된 크로스헤어 컴포넌트를 찾습니다.
         crossHair = GameObject.FindObjectOfType<CrossHair>();
@@ -150,7 +150,7 @@ public class Controller : MonoBehaviour, IFramework
     void Update()
     {
         // 컴포넌트가 null값이거나, 캐릭터가 죽은 상태라면 함수를 종료합니다.
-        if (healthPoint == null || healthPoint.IsDead)
+        if (characterStat == null || characterStat.IsDead)
         {
             // 캐릭터가 죽었다면 크로스헤어와 게임카메라를 찾아서 기능을 정지합니다.
             // 그리고 Controller클래스의 기능또한 정지합니다.
