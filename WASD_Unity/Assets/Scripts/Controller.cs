@@ -47,8 +47,7 @@ public class Controller : MonoBehaviour, IFramework
 
     private CharacterStat characterStat;
 
-    [SerializeField]
-    private float moveSpeed = 5;
+    private float moveSpeed = 0;
 
     // 캐릭터의 모델링만 삭제됩니다.
     public void Die()
@@ -234,7 +233,7 @@ public class Controller : MonoBehaviour, IFramework
         }
 
 
-
+        moveSpeed = characterStat.speed;
         // 벡터의 길이를 1로 만드는 함수입니다.
         moveDir.Normalize();
         // 현재 실행되는 애니메이션 노드의 태그값이 ATK라면 함수를 종료합니다.

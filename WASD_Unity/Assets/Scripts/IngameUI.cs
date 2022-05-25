@@ -24,7 +24,7 @@ public class IngameUI : MonoBehaviour
 
         minimap = UtilHelper.Find<Minimap>(transform, "Minimap", true);
 
-        gameTimer.Execute(1);
+        //gameTimer.Execute(1);
     }
     public void SetMonster(List<SpawnInfo> spawnList)
     {

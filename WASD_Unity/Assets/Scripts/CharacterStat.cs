@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// 체력에 관련된 컴포넌트입니다.
-// 공격력, 방어력, 치명타 확률, 치명타 데미지 현재는 필요없기 때문에 HealthPoint라고 이름을 작명하였습니다.
-// HealthPoint는 모든 캐릭터가 갖고있는 컴포넌트 입니다.
+// 공격력 이동속도 체력에 관련된 컴포넌트입니다.
 public class CharacterStat : MonoBehaviour
 {
-    public int point = 3;
+    [SerializeField]
+    public int Damage = 1;
+    [SerializeField]
+    public float speed = 2.0f;
+    [SerializeField]
+    public float range = 3.0f;
+    [SerializeField]
+    public int HP = 3;
     // 모델 컴포넌트의 초기화는 컨트롤러에서 한 번 초기화 해줍니다.
     public Model model;
     private bool isDead = false;

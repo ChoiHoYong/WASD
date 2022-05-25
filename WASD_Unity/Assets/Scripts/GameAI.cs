@@ -65,7 +65,7 @@ public class GameAI : MonoBehaviour, IFramework
     private CharState current = CharState.Idle;
     private Model model;
 
-    // 자신의 헬스 포인트
+    // 자신의 스탯
     private CharacterStat characterStat;
     public CharacterStat target;
 
@@ -77,7 +77,7 @@ public class GameAI : MonoBehaviour, IFramework
     // 공격 할 수 있는 여부
     private bool attackState = false;
     // 공격할 수 있는 거리
-    public float attackDistance = 3f;
+    public float attackDistance = 0.0f;
 
     public List<SkillInfo> skillList = new List<SkillInfo>();
 
@@ -102,9 +102,9 @@ public class GameAI : MonoBehaviour, IFramework
             if (characterStat != null)
             {
                 model.SetTrigger("Damage");
-                characterStat.point--;
+                characterStat.HP--;
                 // 타격 애니메이션을 출력
-                if (characterStat.point <= 0)
+                if (characterStat.HP <= 0)
                 {
                     characterStat.Die();
                 }
@@ -116,16 +116,17 @@ public class GameAI : MonoBehaviour, IFramework
         if(target != null)
         {
             float distance = Vector3.Distance(target.transform.position, transform.position);
+            attackDistance = characterStat.range;
             if(distance <= attackDistance)
             {
                 CharacterStat characterStat = target.GetComponent<CharacterStat>();
                 IngameUI ingameUI = GameObject.FindObjectOfType<IngameUI>();
-                ingameUI.DecreaseHP(characterStat.point - 1);
-                --characterStat.point;
+                ingameUI.DecreaseHP(characterStat.HP - 1);
+                --characterStat.HP;
                 Model model = target.GetComponent<Model>();
                 model.SetTrigger("Damage");
 
-                if(characterStat.point <= 0)
+                if(characterStat.HP <= 0)
                 {
                     //Destroy(target.gameObject);
                     characterStat.Die();
