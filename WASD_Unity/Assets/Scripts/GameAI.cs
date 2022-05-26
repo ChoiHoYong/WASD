@@ -53,8 +53,6 @@ public enum CharState
 // 몬스터가 사용하는 컨트롤러
 public class GameAI : MonoBehaviour, IFramework
 {
-
-
     [SerializeField]
     private string targetTag = "Player";
     [SerializeField]
@@ -77,7 +75,8 @@ public class GameAI : MonoBehaviour, IFramework
     // 공격 할 수 있는 여부
     private bool attackState = false;
     // 공격할 수 있는 거리
-    public float attackDistance = 0.0f;
+    [SerializeField]
+    public float attackDistance = 2.0f;
 
     public List<SkillInfo> skillList = new List<SkillInfo>();
 
@@ -102,7 +101,7 @@ public class GameAI : MonoBehaviour, IFramework
             if (characterStat != null)
             {
                 model.SetTrigger("Damage");
-                characterStat.HP--;
+                characterStat.HP -= GameData.Damage;
                 // 타격 애니메이션을 출력
                 if (characterStat.HP <= 0)
                 {
@@ -116,13 +115,12 @@ public class GameAI : MonoBehaviour, IFramework
         if(target != null)
         {
             float distance = Vector3.Distance(target.transform.position, transform.position);
-            attackDistance = characterStat.range;
             if(distance <= attackDistance)
             {
                 CharacterStat characterStat = target.GetComponent<CharacterStat>();
                 IngameUI ingameUI = GameObject.FindObjectOfType<IngameUI>();
                 ingameUI.DecreaseHP(characterStat.HP - 1);
-                --characterStat.HP;
+                characterStat.HP -= GameData.Damage;
                 Model model = target.GetComponent<Model>();
                 model.SetTrigger("Damage");
 

@@ -6,12 +6,6 @@ using UnityEngine;
 public class CharacterStat : MonoBehaviour
 {
     [SerializeField]
-    public int Damage = 1;
-    [SerializeField]
-    public float speed = 2.0f;
-    [SerializeField]
-    public float range = 3.0f;
-    [SerializeField]
     public int HP = 3;
     // 모델 컴포넌트의 초기화는 컨트롤러에서 한 번 초기화 해줍니다.
     public Model model;

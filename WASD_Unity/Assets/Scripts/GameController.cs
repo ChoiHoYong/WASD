@@ -47,6 +47,11 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //능력 리스트를 초기화합니다.
+        GameData.avility_list.Clear();
+        GameData.isClear = false;
+        GameData.isReady = false;
+
         // 게임뷰에 커서를 락을 걸고, 보이지 않도록 처리합니다.
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

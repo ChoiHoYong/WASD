@@ -103,11 +103,7 @@ public class Controller : MonoBehaviour, IFramework
         }
         // 현재 하이어라키내에 배치된 크로스헤어 컴포넌트를 찾습니다.
         crossHair = GameObject.FindObjectOfType<CrossHair>();
-        // 게임뷰에 커서가 있으면 커서를 보여주지 않도록 처리합니다.
-        // 마우스 커서를 락합니다.
 
-        // 이펙트를 출력하시면 됩니다. - 4.18에 처리할 예정
-        // StartCoroutine에 대한 원리를 - 4.18에 설명할 예정
         Invoke("ShowChar", 1.0f);
     }
     void ShowChar()
@@ -233,7 +229,7 @@ public class Controller : MonoBehaviour, IFramework
         }
 
 
-        moveSpeed = characterStat.speed;
+        moveSpeed = GameData.speed;
         // 벡터의 길이를 1로 만드는 함수입니다.
         moveDir.Normalize();
         // 현재 실행되는 애니메이션 노드의 태그값이 ATK라면 함수를 종료합니다.

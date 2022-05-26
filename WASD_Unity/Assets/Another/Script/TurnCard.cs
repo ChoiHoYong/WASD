@@ -13,15 +13,19 @@ public class TurnCard : MonoBehaviour
 
     static bool choice = false;
 
+    StageManager stageManager;
+
     RectTransform rectTransform;
     Image cardImage;
     public Sprite[] cards;//스프라이트 배열 생성
+
+    public int randomtemp = 0;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         cardImage = GetComponent<Image>();
-        
+        stageManager = GetComponent<StageManager>();
     }
 
     private void Start()
@@ -69,8 +73,25 @@ public class TurnCard : MonoBehaviour
 
         if (choice == false)
         {
-            cardImage.sprite = cards[Random.Range(0, 3)];//0~2번째 배열에 들어있는 사진으로 바꾸기
-            //cardImage.sprite = spriteCardBack;
+            randomtemp = Random.Range(0, 3);
+            cardImage.sprite = cards[randomtemp];//0~2번째 배열에 들어있는 사진으로 바꾸기
+            switch (randomtemp)
+            {
+                case 0:
+                    GameData.avility_list.Add("Attack");
+                    ++GameData.Damage;
+                    break;
+                case 1:
+                    GameData.avility_list.Add("Hp");
+                    ++GameData.HP;
+                    break;
+                case 2:
+                    GameData.avility_list.Add("Speed");
+                    ++GameData.speed;
+                    break;
+                default:
+                    break;
+            }
             choice = true;
         }
         isFront = !isFront;

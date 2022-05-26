@@ -33,6 +33,10 @@ public class Fade : MonoBehaviour
             yield return null;
         }
     }
+    void DeactiveImage()
+    {
+        background.gameObject.SetActive(false);
+    }
 
     private void ChangeColor(Color start, Color end, float targetTime)
     {
@@ -42,6 +46,7 @@ public class Fade : MonoBehaviour
     public void FadeIn(float targetTime = 1.0f)
     {
         ChangeColor(Color.black, new Color(0, 0, 0, 0), targetTime);
+        Invoke("DeactiveImage", targetTime);
     }
     public void FadeOut(float targetTime = 1.0f)
     {

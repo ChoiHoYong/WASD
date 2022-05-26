@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
+    private CardManager cardmanager;
+    private GameObject Card;
+    private GameTimer gameTimer;
+
     // 참고할 데이터 , stage.spawnCount를 사용하여 최대 개수를 조정할 예정
     public SpawnScriptableObject stage;
 
@@ -20,6 +25,10 @@ public class StageManager : MonoBehaviour
 
     // 일정한 시간이 지난뒤에 실행될 수 있도록 변수를 추가하였습니다.
     private bool update = false;
+    public void SceneChange()
+    {
+        SceneManager.LoadSceneAsync("Stage" + GameData.currStage.ToString());
+    }
 
     public void ReleaseMonster(CharacterStat characterStat)
     {
@@ -29,19 +38,27 @@ public class StageManager : MonoBehaviour
             // 몬스터를 삭제하고 남은 개수가 0이라면 스테이지 클리어 처리합니다.
             if(monsterList.Count == 0)
             {
-                print("게임 클리어");
                 if((GameData.currStage + 1) <= GameData.maxStage)
                 {
+                    GameData.isClear = true;
+                    gameTimer = GetComponent<GameTimer>();
                     // 스테이지 이동이 가능할때는 메세지를 출력한 이후에 스테이지를 이동할 수 있다록 처리
                     GameData.currStage++;
-                    SceneManager.LoadSceneAsync("Stage" + GameData.currStage.ToString());
+
+                    Card = GameObject.Find("Card").transform.GetChild(0).gameObject;
+                    Card.SetActive(true);
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                    GameData.HP = characterStat.HP;
+                    //SceneManager.LoadSceneAsync("Stage" + GameData.currStage.ToString());
+                    Invoke("SceneChange", 10);
                 }
                 else
                 {
                     // 게임 전체를 클리어한 상태라면 결과 신으로 이동
                     SceneManager.LoadSceneAsync("End");
                 }
-                Fade.Instance.FadeOut();
+                //Fade.Instance.FadeOut();
             }
         }
     }
