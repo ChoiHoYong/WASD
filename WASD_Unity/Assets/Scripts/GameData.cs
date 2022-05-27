@@ -11,7 +11,7 @@ public static class GameData
     // 게임을 클리어 하기 까지 걸린 시간
     public static DateTime clearTime;
     // 각 스테이지를 클리어 하기 까지 걸린 시간
-    public static DateTime elapsed;
+    public static int elapsed;
     public static bool isClear = false;
     public static bool isReady = false;
     public static int Damage = 1;

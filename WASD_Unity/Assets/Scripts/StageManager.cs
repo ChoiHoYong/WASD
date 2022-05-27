@@ -50,6 +50,7 @@ public class StageManager : MonoBehaviour
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
                     GameData.HP = characterStat.HP;
+                    GameData.clearTime = GameData.clearTime.AddSeconds(GameData.elapsed);
                     //SceneManager.LoadSceneAsync("Stage" + GameData.currStage.ToString());
                     Invoke("SceneChange", 10);
                 }
