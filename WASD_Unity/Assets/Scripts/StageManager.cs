@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
+    
     private CardManager cardmanager;
     private GameObject Card;
     private GameTimer gameTimer;
@@ -52,7 +53,8 @@ public class StageManager : MonoBehaviour
                     GameData.HP = characterStat.HP;
                     GameData.clearTime = GameData.clearTime.AddSeconds(GameData.elapsed);
                     //SceneManager.LoadSceneAsync("Stage" + GameData.currStage.ToString());
-                    Invoke("SceneChange", 10);
+                    
+                    //Invoke("SceneChange", 10);
                 }
                 else
                 {
@@ -67,6 +69,8 @@ public class StageManager : MonoBehaviour
     // Start is called before the first frame update
     public void Init()
     {
+        
+
         spawnList.AddRange(stage.spawnList);
         // 스테이지 매니저 하단에 배치된 자식 Transform을 찾습니다.
         for (int i = 0; i < transform.childCount; ++i)

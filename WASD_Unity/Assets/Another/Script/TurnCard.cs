@@ -19,7 +19,7 @@ public class TurnCard : MonoBehaviour
     Image cardImage;
     public Sprite[] cards;//스프라이트 배열 생성
 
-    public int randomtemp = 0;
+    public int randomtemp = -1;
 
     private void Awake()
     {
@@ -50,6 +50,16 @@ public class TurnCard : MonoBehaviour
             StartCoroutine(Turn());
     }
 
+    public void IsTurn()
+    {
+        if(choice == true)
+        {
+            //3초 있다가 씬을 바꿈.
+            Invoke("SceneChange", 2);
+            choice = false;
+        }
+    }
+
     IEnumerator Turn()
     {
         float tick = 0f;
@@ -73,20 +83,26 @@ public class TurnCard : MonoBehaviour
 
         if (choice == false)
         {
+            //랜덤 능력 선택
             randomtemp = Random.Range(0, 3);
-            cardImage.sprite = cards[randomtemp];//0~2번째 배열에 들어있는 사진으로 바꾸기
+            //0~2번째 배열에 들어있는 사진으로 바꾸기
+            cardImage.sprite = cards[randomtemp];
+            //능력 리스트에 넣고, 능력 증가
             switch (randomtemp)
             {
                 case 0:
                     GameData.avility_list.Add("Attack");
                     ++GameData.Damage;
+                    Debug.Log("공격 선택");
                     break;
                 case 1:
                     GameData.avility_list.Add("Hp");
+                    Debug.Log("체력 선택");
                     ++GameData.HP;
                     break;
                 case 2:
                     GameData.avility_list.Add("Speed");
+                    Debug.Log("이속 선택");
                     ++GameData.speed;
                     break;
                 default:

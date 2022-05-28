@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioSound : MonoBehaviour
 {
@@ -29,5 +30,11 @@ public class AudioSound : MonoBehaviour
     public void StopMusic()
     {
         audioSource.Stop();
+    }
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "LoadingScene")
+            Destroy(gameObject);
     }
 }
