@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TurnCard : MonoBehaviour
 {
@@ -30,8 +31,10 @@ public class TurnCard : MonoBehaviour
 
     private void Start()
     {
+        //choice clear.
+        choice = false;
         //spriteCardFront = GetComponent<Sprite>();
-        
+
         if (isFront)
         {
             cardImage.sprite = spriteCardFront;
@@ -56,10 +59,13 @@ public class TurnCard : MonoBehaviour
         {
             //3√  ¿÷¥Ÿ∞° æ¿¿ª πŸ≤ﬁ.
             Invoke("SceneChange", 2);
-            choice = false;
+            
         }
     }
-
+    public void SceneChange()
+    {
+        SceneManager.LoadSceneAsync("Stage" + GameData.currStage.ToString());
+    }
     IEnumerator Turn()
     {
         float tick = 0f;

@@ -6,7 +6,7 @@ using UnityEngine;
 public static class GameData
 {
     public static int currStage = 1;
-    public static int maxStage = 2;
+    public static int maxStage = 3;
     public static List<string> avility_list = new List<string>();
     // 게임을 클리어 하기 까지 걸린 시간
     public static DateTime clearTime;
