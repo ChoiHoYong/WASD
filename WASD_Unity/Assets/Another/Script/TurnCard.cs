@@ -104,13 +104,13 @@ public class TurnCard : MonoBehaviour
                     break;
                 case 1:
                     GameData.avility_list.Add("Hp");
-                    Debug.Log("체력 선택");
                     ++GameData.HP;
+                    Debug.Log("체력 선택");
                     break;
                 case 2:
                     GameData.avility_list.Add("Speed");
-                    Debug.Log("이속 선택");
                     ++GameData.speed;
+                    Debug.Log("이속 선택");
                     break;
                 default:
                     break;

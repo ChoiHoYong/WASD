@@ -5338,6 +5338,17 @@ Transform:
   m_Father: {fileID: 1559900716}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &722177562 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 962911909452946247, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+  m_PrefabInstance: {fileID: 1029672289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e600baa5512baff48accec57fb1c708b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &736533431 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1438797800468804, guid: 7087784e228be8745af45599a5130532, type: 3}
@@ -7559,6 +7570,62 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 962911909452946246, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911909452946246, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911909452946246, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 722177562}
+    - target: {fileID: 962911909452946246, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911909452946246, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: IsTurn
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911909452946246, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TurnCard, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911909452946246, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911909580351258, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911909580351258, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911909580351258, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1187208498}
+    - target: {fileID: 962911909580351258, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911909580351258, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: IsTurn
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911909580351258, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TurnCard, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911909580351258, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 962911910089251741, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -7610,6 +7677,34 @@ PrefabInstance:
     - target: {fileID: 962911910242289933, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911910552077004, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911910552077004, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911910552077004, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2025271069}
+    - target: {fileID: 962911910552077004, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911910552077004, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: IsTurn
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911910552077004, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TurnCard, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 962911910552077004, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
@@ -8735,6 +8830,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4565743505842534, guid: 9e6377f4cae22eb4194f71c6e76c37b9, type: 3}
   m_PrefabInstance: {fileID: 1174128372}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1187208498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 962911909580351259, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+  m_PrefabInstance: {fileID: 1029672289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e600baa5512baff48accec57fb1c708b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1200988372
 GameObject:
   m_ObjectHideFlags: 0
@@ -15933,6 +16039,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4524486647388044, guid: 5fb4dbc1b7c07b9418845eb61970d9df, type: 3}
   m_PrefabInstance: {fileID: 2008524186}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2025271069 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 962911910552077005, guid: c3eb8039d9388d849a69e4568c03fed2, type: 3}
+  m_PrefabInstance: {fileID: 1029672289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e600baa5512baff48accec57fb1c708b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2055365874
 GameObject:
   m_ObjectHideFlags: 0
