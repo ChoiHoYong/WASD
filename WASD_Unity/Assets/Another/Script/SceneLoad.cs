@@ -10,6 +10,7 @@ public class SceneLoad : MonoBehaviour
     public Text loadText;
     private void Start()
     {
+        PlayerPrefs.DeleteAll();
         StartCoroutine(LoadScene());        
     }
     IEnumerator LoadScene()

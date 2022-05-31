@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TurnCard : MonoBehaviour
 {
+
     public Sprite spriteCardFront;
     public Sprite spriteCardBack;
 
@@ -89,6 +90,7 @@ public class TurnCard : MonoBehaviour
 
         if (choice == false)
         {
+
             //랜덤 능력 선택
             randomtemp = Random.Range(0, 3);
             //0~2번째 배열에 들어있는 사진으로 바꾸기
@@ -97,17 +99,35 @@ public class TurnCard : MonoBehaviour
             switch (randomtemp)
             {
                 case 0:
-                    GameData.avility_list.Add("Attack");
+                    //GameData.avility_list.Add("Attack");
+                    if (!PlayerPrefs.HasKey("avility1"))
+                        PlayerPrefs.SetString("avility1", "attack");
+                    else if (!PlayerPrefs.HasKey("avility2"))
+                        PlayerPrefs.SetString("avility2", "attack");
+                    else if (!PlayerPrefs.HasKey("avility3"))
+                        PlayerPrefs.SetString("avility3", "attack");
                     ++GameData.Damage;
                     Debug.Log("공격 선택");
                     break;
                 case 1:
-                    GameData.avility_list.Add("Hp");
+                    //GameData.avility_list.Add("Hp");
+                    if (!PlayerPrefs.HasKey("avility1"))
+                        PlayerPrefs.SetString("avility1", "hp");
+                    else if (!PlayerPrefs.HasKey("avility2"))
+                        PlayerPrefs.SetString("avility2", "hp");
+                    else if (!PlayerPrefs.HasKey("avility3"))
+                        PlayerPrefs.SetString("avility3", "hp");
                     ++GameData.HP;
                     Debug.Log("체력 선택");
                     break;
                 case 2:
-                    GameData.avility_list.Add("Speed");
+                    //GameData.avility_list.Add("Speed");
+                    if (!PlayerPrefs.HasKey("avility1"))
+                        PlayerPrefs.SetString("avility1", "speed");
+                    else if (!PlayerPrefs.HasKey("avility2"))
+                        PlayerPrefs.SetString("avility2", "speed");
+                    else if (!PlayerPrefs.HasKey("avility3"))
+                        PlayerPrefs.SetString("avility3", "speed");
                     ++GameData.speed;
                     Debug.Log("이속 선택");
                     break;

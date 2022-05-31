@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         //능력 리스트를 초기화합니다.
-        GameData.avility_list.Clear();
+        //GameData.avility_list.Clear();
         GameData.isClear = false;
         GameData.isReady = false;
 
