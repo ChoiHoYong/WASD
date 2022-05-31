@@ -51,6 +51,7 @@ public class StageManager : MonoBehaviour
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
                     GameData.HP = characterStat.HP;
+
                     GameData.clearTime = GameData.clearTime.AddSeconds(GameData.elapsed);
                     //SceneManager.LoadSceneAsync("Stage" + GameData.currStage.ToString());
                     
@@ -59,6 +60,7 @@ public class StageManager : MonoBehaviour
                 else
                 {
                     // 게임 전체를 클리어한 상태라면 결과 신으로 이동
+                    GameData.clearTime = GameData.clearTime.AddSeconds(GameData.elapsed);
                     SceneManager.LoadSceneAsync("End");
                 }
                 //Fade.Instance.FadeOut();

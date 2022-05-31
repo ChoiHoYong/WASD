@@ -34,13 +34,9 @@ public class AvilityManager : MonoBehaviour
 
     public void clear_time()
     {
-        GameData.clearTime = GameData.clearTime.AddSeconds(GameData.elapsed);
-
         text = GameObject.Find("ClearTime_text");
         clear_text = text.GetComponent<Text>();
-        total = GameData.clearTime;
-
-        clear_text.text = total.ToString($"mm\\:ss");
+        clear_text.text = GameData.clearTime.ToString($"mm\\:ss");
     }
 
     public void avility_choice()

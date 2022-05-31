@@ -72,6 +72,7 @@ public class Controller : MonoBehaviour, IFramework
     // 호출되지 않을 수 있습니다.
     public void Init()
     {
+
         // 캐릭터에 하단에 배치된 DummyTarget을 찾습니다.
         dummyTarget = transform.Find("DummyTarget");
 
@@ -105,6 +106,20 @@ public class Controller : MonoBehaviour, IFramework
         crossHair = GameObject.FindObjectOfType<CrossHair>();
 
         Invoke("ShowChar", 1.0f);
+
+        if (GameData.HP == -1)
+        {
+            if (PlayerPrefs.HasKey("HP"))
+            {
+                characterStat.HP = PlayerPrefs.GetInt("HP");
+                GameData.HP = characterStat.HP;
+
+            }
+        }
+        else
+        {
+            characterStat.HP = GameData.HP;
+        }
     }
     void ShowChar()
     {
