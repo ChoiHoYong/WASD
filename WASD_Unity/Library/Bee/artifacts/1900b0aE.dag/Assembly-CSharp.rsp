@@ -107,7 +107,6 @@
 -define:ENABLE_UNITY_COLLECTIONS_CHECKS
 -define:ENABLE_BURST_AOT
 -define:UNITY_TEAM_LICENSE
--define:UNITY_PRO_LICENSE
 -define:ENABLE_CUSTOM_RENDER_TEXTURE
 -define:ENABLE_DIRECTOR
 -define:ENABLE_LOCALIZATION
@@ -323,7 +322,7 @@
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XPath.XDocument.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.3f1/Editor/Data/NetStandard/Extensions/2.0.0/System.Runtime.InteropServices.WindowsRuntime.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.3f1/Editor/Data/NetStandard/ref/2.1.0/netstandard.dll"
--r:"C:/Users/최호원/Documents/GitHub/WASD/WASD_Unity/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll"
+-r:"C:/Users/호용/Documents/GitHub/WASD/WASD_Unity/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Sprite.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Postprocessing.Editor.ref.dll"
@@ -342,20 +341,19 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/Another/Script/AudioSound.cs"
-"Assets/Another/Script/AvilityManager.cs"
-"Assets/Another/Script/Background_Scrolling.cs"
-"Assets/Another/Script/CardManager.cs"
-"Assets/Another/Script/CardMove.cs"
-"Assets/Another/Script/EffectManager.cs"
-"Assets/Another/Script/icon1script.cs"
-"Assets/Another/Script/MainMenu.cs"
-"Assets/Another/Script/NewBehaviourScript.cs"
-"Assets/Another/Script/SceneChange.cs"
-"Assets/Another/Script/SceneLoad.cs"
-"Assets/Another/Script/SoundManager.cs"
-"Assets/Another/Script/TitleUI.cs"
-"Assets/Another/Script/TurnCard.cs"
+"Assets/another/Script/AudioSound.cs"
+"Assets/another/Script/AvilityManager.cs"
+"Assets/another/Script/Background_Scrolling.cs"
+"Assets/another/Script/CardManager.cs"
+"Assets/another/Script/CardMove.cs"
+"Assets/another/Script/EffectManager.cs"
+"Assets/another/Script/MainMenu.cs"
+"Assets/another/Script/NewBehaviourScript.cs"
+"Assets/another/Script/SceneChange.cs"
+"Assets/another/Script/SceneLoad.cs"
+"Assets/another/Script/SoundManager.cs"
+"Assets/another/Script/TitleUI.cs"
+"Assets/another/Script/TurnCard.cs"
 "Assets/archery_simple_demo/plugins/easy_gui_dialog/Canvas_alert.cs"
 "Assets/archery_simple_demo/plugins/easy_gui_dialog/Canvas_confirm_box.cs"
 "Assets/archery_simple_demo/plugins/easy_gui_dialog/Canvas_input_dialog.cs"

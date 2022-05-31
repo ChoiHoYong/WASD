@@ -62,7 +62,6 @@ public class TurnCard : MonoBehaviour
             
         }
     }
-    //¾À º¯È¯
     public void SceneChange()
     {
         SceneManager.LoadSceneAsync("Stage" + GameData.currStage.ToString());
