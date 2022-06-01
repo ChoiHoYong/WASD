@@ -10,26 +10,41 @@ public class AvilityManager : MonoBehaviour
     [SerializeField]
     public Sprite[] avilities = new Sprite[3];
     
-    //게임오브젝트 변수
+    //능력 
     private GameObject Icon1;
     private GameObject Icon2;
     private GameObject Icon3;
     
-    //게임오브젝트의 이미지 변수
     private Image image1;
     private Image image2;
     private Image image3;
 
-    //
+    //텍스트 
     private GameObject text;
     private Text clear_text;
-    private DateTime total;
+
+    //닉네임
+    private GameObject nickname_go;
+    private Text nickname_text;
+    
 
     void Start()
     {
+        //커서
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         avility_choice();
         
         clear_time();
+
+    }
+
+    public void Input_Text()
+    {
+        nickname_go = GameObject.Find("NickName_input").transform.GetChild(2).gameObject;
+        nickname_text = nickname_go.GetComponent<Text>();
+        PlayerPrefs.SetString("NickName", nickname_text.text.ToString());
     }
 
     public void clear_time()
@@ -37,6 +52,7 @@ public class AvilityManager : MonoBehaviour
         text = GameObject.Find("ClearTime_text");
         clear_text = text.GetComponent<Text>();
         clear_text.text = GameData.clearTime.ToString($"mm\\:ss");
+        PlayerPrefs.SetString("Time", GameData.clearTime.ToString($"mm\\:ss"));
     }
 
     public void avility_choice()

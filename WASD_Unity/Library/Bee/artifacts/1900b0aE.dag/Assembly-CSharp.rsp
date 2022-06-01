@@ -349,7 +349,7 @@
 "Assets/Another/Script/CardMove.cs"
 "Assets/Another/Script/EffectManager.cs"
 "Assets/Another/Script/MainMenu.cs"
-"Assets/Another/Script/NewBehaviourScript.cs"
+"Assets/Another/Script/RankingManager.cs"
 "Assets/Another/Script/SceneChange.cs"
 "Assets/Another/Script/SceneLoad.cs"
 "Assets/Another/Script/SoundManager.cs"

@@ -109,17 +109,9 @@ public class Controller : MonoBehaviour, IFramework
 
         if (GameData.HP == -1)
         {
-            if (PlayerPrefs.HasKey("HP"))
-            {
-                characterStat.HP = PlayerPrefs.GetInt("HP");
-                GameData.HP = characterStat.HP;
-
-            }
+             GameData.HP = characterStat.HP;
         }
-        else
-        {
-            characterStat.HP = GameData.HP;
-        }
+        characterStat.HP = GameData.HP;
     }
     void ShowChar()
     {

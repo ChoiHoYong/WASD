@@ -11,6 +11,7 @@ public class StageManager : MonoBehaviour
     private CardManager cardmanager;
     private GameObject Card;
     private GameTimer gameTimer;
+    private Controller controller;
 
     // 참고할 데이터 , stage.spawnCount를 사용하여 최대 개수를 조정할 예정
     public SpawnScriptableObject stage;
@@ -43,15 +44,13 @@ public class StageManager : MonoBehaviour
                 {
                     GameData.isClear = true;
                     gameTimer = GetComponent<GameTimer>();
+                    controller = GetComponent<Controller>();
                     // 스테이지 이동이 가능할때는 메세지를 출력한 이후에 스테이지를 이동할 수 있다록 처리
                     GameData.currStage++;
-
                     Card = GameObject.Find("Card").transform.GetChild(0).gameObject;
                     Card.SetActive(true);
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
-                    GameData.HP = characterStat.HP;
-
                     GameData.clearTime = GameData.clearTime.AddSeconds(GameData.elapsed);
                     //SceneManager.LoadSceneAsync("Stage" + GameData.currStage.ToString());
                     
