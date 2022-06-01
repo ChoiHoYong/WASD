@@ -435,6 +435,8 @@
 "Assets/Scripts/Controller.cs"
 "Assets/Scripts/CrossHair.cs"
 "Assets/Scripts/DrawGizmos.cs"
+"Assets/Scripts/EnemyArrow.cs"
+"Assets/Scripts/EnemyRangeAttack.cs"
 "Assets/Scripts/Fade.cs"
 "Assets/Scripts/FirePos.cs"
 "Assets/Scripts/GameAI.cs"
