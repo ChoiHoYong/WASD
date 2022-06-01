@@ -15,6 +15,6 @@ public static class GameData
     public static bool isClear = false;
     public static bool isReady = false;
     public static int Damage = 1;
-    public static float speed = 2.0f;
+    public static float speed = 2.5f;
     public static int HP = -1;
 }

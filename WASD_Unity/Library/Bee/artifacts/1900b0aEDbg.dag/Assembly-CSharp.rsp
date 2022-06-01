@@ -461,6 +461,7 @@
 "Assets/Scripts/SpawnPoint.cs"
 "Assets/Scripts/SpawnScriptableObject.cs"
 "Assets/Scripts/StageManager.cs"
+"Assets/Scripts/TSingleton.cs"
 "Assets/Scripts/UIHelper.cs"
 "Assets/Scripts/UtilHelper.cs"
 "Assets/Suriyun/Scripts/AnimatorController.cs"

@@ -58,11 +58,6 @@ public class Minimap : MonoBehaviour
         playerIcon = GetComponentInChildren<PlayerIcon>();
         if (playerIcon != null)
             playerIcon.Init();
-
-        /*print(worldWidth);
-        print(worldDepth);
-        print(uiMapWidth);
-        print(uiMapHeight);*/
     }
 
     // Update is called once per frame

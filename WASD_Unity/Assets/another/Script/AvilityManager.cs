@@ -107,7 +107,7 @@ public class AvilityManager : MonoBehaviour
         {
             image3.sprite = avilities[1];
         }
-        else if (PlayerPrefs.GetString("avility1") == "speed")
+        else if (PlayerPrefs.GetString("avility3") == "speed")
         {
             image3.sprite = avilities[2];
         }

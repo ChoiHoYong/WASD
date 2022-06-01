@@ -9,14 +9,12 @@ public class SkillInfo
     public bool execute = false;
     public float coolTime = 10;
     public float elapsedTime = 0;
-    public string skillTrigger = "Attack2";
     // 스킬을 사용할 수 있는 거리
     // 버프 스킬, 
     public float skillDist = 3;
     // 대기해야할 시간
     public float waitTime = 2;
     public float waitingElap = 0;
-    public CharState skillState = CharState.Skill2;
 
     // 스킬이 진입되는 시점과 스킬이 끝나는 시점을 따로 구별해야 합니다.
 
@@ -46,8 +44,6 @@ public enum CharState
     Idle,
     Attack,
     MoveToTarget,
-    Skill1,
-    Skill2,
 }
 
 // 몬스터가 사용하는 컨트롤러
@@ -126,13 +122,8 @@ public class GameAI : MonoBehaviour, IFramework
 
                 if(characterStat.HP <= 0)
                 {
-                    //Destroy(target.gameObject);
                     characterStat.Die();
-                    //target.SetDead(true);
                     target = null;
-
-                    // 캐릭터 죽음
-                    print("캐릭터 죽음");
                 }
             }
         }
@@ -227,21 +218,6 @@ public class GameAI : MonoBehaviour, IFramework
             Vector3 targetPos = target.transform.position + direction * radius;
             model.SetDestination(targetPos);
         }
-        // 스킬을 사용할 수 있는 시점이라면 스킬을 사용할 수 있는 거리가 되었을 때 스킬 상태로 변경합니다.
-        if(currSkill != null)
-        {
-            if(distance < currSkill.skillDist)
-            {
-                // 1. 기를 모은다
-                // 2. 일정한 시간동안 대기한다
-                // 3. 공격한다
-                currSkill.update = true;
-                currSkill.elapsedTime = 0;
-                current = currSkill.skillState;
-                // 현재 시점에서 멈추도록 설정합니다.
-                model.StopAgent();
-            }
-        }
 
         // 두 모델링 사이의 거리를 체크했을때 공격을 할 수 있는 거리라면 상태를 변경합니다.
         else if (distance < attackDistance)
@@ -307,35 +283,6 @@ public class GameAI : MonoBehaviour, IFramework
             }
         }
     }
-    // Skill1 스킬1값을 실행할 때까지 지속적으로 호출되는 함수입니다.
-    void Skill1()
-    {
-        // 현재 어떤 스킬을 사용해야 하는가?
-        // 범위는 어떻게 되는지?
-        if(currSkill.execute == false)
-        {
-            currSkill.execute = true;
-            model.SetTrigger(currSkill.skillTrigger);
-        }
-        currSkill.waitingElap += Time.deltaTime;
-        if(currSkill.waitTime < currSkill.waitingElap)
-        {
-            currSkill.update = true;
-            currSkill.execute = false;
-            currSkill.waitingElap = 0;
-            // currSkill값이 null값이 아니면 다른 스킬을 받아올 수 없습니다.
-            currSkill = null;
-            // 적 추적모드로 변경합니다.
-            current = CharState.MoveToTarget;
-        }
-    }
-    void Skill2()
-    {
-
-    }
-    // 보스는 스킬을 사용해야 합니다.
-    // 1. 스킬 쿨타임
-    // 2. 스킬 시점의 상태제어함수
 
     // Update is called once per frame
     void Update()
