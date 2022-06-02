@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -527,6 +527,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159603971}
   m_CullTransparentMesh: 1
+--- !u!1 &193359802 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9024111307063370760, guid: ffadb8026068f884e9f3ad6a307ae93c, type: 3}
+  m_PrefabInstance: {fileID: 5077358158764372481}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &301177272 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1060483703573856262, guid: 610a076ed80efcc42880bef5ed33acf8, type: 3}
@@ -595,6 +600,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea8f9ca368953e94cbe6e8aa2b86257d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  avilities:
+  - {fileID: 21300000, guid: a573f3f5030b4fc4bbc03a9dc81bb0d4, type: 3}
+  - {fileID: 21300000, guid: 060e300103be33c4a8f5a4147d2e62f6, type: 3}
+  - {fileID: 21300000, guid: ffd0f93e7ee08b448bdc65f400d8b56c, type: 3}
 --- !u!4 &515393724
 Transform:
   m_ObjectHideFlags: 0
@@ -855,11 +864,6 @@ Transform:
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 7461517678191645865, guid: 6ac3ce3f1e40ebc41a27025e7743a23b, type: 3}
   m_PrefabInstance: {fileID: 7461517677754349049}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &823877850 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5077358158512362203, guid: ffadb8026068f884e9f3ad6a307ae93c, type: 3}
-  m_PrefabInstance: {fileID: 5077358158764372481}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &823877851 stripped
 RectTransform:
@@ -1641,7 +1645,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 823877850}
+      - m_Target: {fileID: 193359802}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -2672,6 +2676,10 @@ PrefabInstance:
     - target: {fileID: 5077358160195397183, guid: ffadb8026068f884e9f3ad6a307ae93c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -30.14936
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024111307063370760, guid: ffadb8026068f884e9f3ad6a307ae93c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffadb8026068f884e9f3ad6a307ae93c, type: 3}

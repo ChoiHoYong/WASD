@@ -80,7 +80,7 @@ public class RankingManager : MonoBehaviour
 
         //시간 가져오기
 
-        time_go = GameObject.Find("Rank").transform.GetChild(1).transform.GetChild(3).gameObject;
+        time_go = GameObject.Find("Rank").transform.GetChild(0).transform.GetChild(1).transform.GetChild(3).gameObject;
 
         time_text = time_go.GetComponent<Text>();
 
@@ -90,7 +90,7 @@ public class RankingManager : MonoBehaviour
 
         //닉네임 가져오기
 
-        nickname_go = GameObject.Find("Rank").transform.GetChild(1).transform.GetChild(2).gameObject;
+        nickname_go = GameObject.Find("Rank").transform.GetChild(0).transform.GetChild(1).transform.GetChild(2).gameObject;
 
         nickname_text = nickname_go.GetComponent<Text>();
 
@@ -102,7 +102,7 @@ public class RankingManager : MonoBehaviour
 
         //능력 가져오기
 
-        avility_go1 = GameObject.Find("Rank").transform.GetChild(1).transform.GetChild(4).transform.GetChild(0).gameObject;
+        avility_go1 = GameObject.Find("Rank").transform.GetChild(0).transform.GetChild(1).transform.GetChild(4).transform.GetChild(0).gameObject;
 
         avility_img1 = avility_go1.GetComponent<Image>();
 
@@ -120,7 +120,7 @@ public class RankingManager : MonoBehaviour
 
 
 
-        avility_go2 = GameObject.Find("Rank").transform.GetChild(1).transform.GetChild(4).transform.GetChild(1).gameObject;
+        avility_go2 = GameObject.Find("Rank").transform.GetChild(0).transform.GetChild(1).transform.GetChild(4).transform.GetChild(1).gameObject;
 
         avility_img2 = avility_go2.GetComponent<Image>();
 
@@ -138,7 +138,7 @@ public class RankingManager : MonoBehaviour
 
 
 
-        avility_go3 = GameObject.Find("Rank").transform.GetChild(1).transform.GetChild(4).transform.GetChild(2).gameObject;
+        avility_go3 = GameObject.Find("Rank").transform.GetChild(0).transform.GetChild(1).transform.GetChild(4).transform.GetChild(2).gameObject;
 
         avility_img3 = avility_go3.GetComponent<Image>();
 
