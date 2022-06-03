@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 // AudioListener : 귀
@@ -12,6 +13,8 @@ using UnityEngine;
 
 public class GameAudioManager : MonoBehaviour
 {
+    
+
     private static GameAudioManager instance;
 
     private GameAudioManager() { }
@@ -33,6 +36,10 @@ public class GameAudioManager : MonoBehaviour
 
                 // 게임 오디오 매니저가 파괴되지 않도록 처리합니다.
                 DontDestroyOnLoad(obj);
+
+                //메인으로 가면 소리 지움
+                //if (SceneManager.GetActiveScene().name == "MainScene")
+                //    Destroy(obj);
 
             }
             return instance;
@@ -153,5 +160,4 @@ public class GameAudioManager : MonoBehaviour
         }
         return audioSource;
     }
-
 }

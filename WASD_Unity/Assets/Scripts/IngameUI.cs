@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class IngameUI : MonoBehaviour
 {
@@ -46,6 +47,14 @@ public class IngameUI : MonoBehaviour
     public void MissionFailed()
     {
         if (gameMessage != null)
+        {
             gameMessage.gameObject.SetActive(true);
+            
+            Invoke("ChangeMain", 3);
+        }
+    }
+    void ChangeMain()
+    {
+        SceneManager.LoadSceneAsync("MainScene");
     }
 }

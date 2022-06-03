@@ -26,7 +26,12 @@ public class AvilityManager : MonoBehaviour
     //닉네임
     private GameObject nickname_go;
     private Text nickname_text;
-    
+
+    //시간
+    string[] stime_sp;
+    string stime;
+    int ntime1 = 0;
+    int ntime2 = 0;
 
     void Start()
     {
@@ -53,6 +58,13 @@ public class AvilityManager : MonoBehaviour
         clear_text = text.GetComponent<Text>();
         clear_text.text = GameData.clearTime.ToString($"mm\\:ss");
         PlayerPrefs.SetString("Time", GameData.clearTime.ToString($"mm\\:ss"));
+        
+        stime = PlayerPrefs.GetString("Time");
+        stime_sp = stime.Split(":");
+        ntime1 = Int32.Parse(stime_sp[0]);
+        ntime2 = Int32.Parse(stime_sp[1]);
+        PlayerPrefs.SetInt("Clear_front", ntime1);
+        PlayerPrefs.SetInt("Clear_back", ntime2);
     }
 
     public void avility_choice()
