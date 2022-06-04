@@ -16,6 +16,8 @@ public class Fade : MonoBehaviour
     public void Init()
     {
         background = GetComponentInChildren<Image>(true);
+        DeactiveImage();
+        
         instance = this;
     }
 
@@ -23,7 +25,8 @@ public class Fade : MonoBehaviour
     {
         float elapsedTime = 0;
         background.color = start;
-        while(true)
+        background.gameObject.SetActive(true);
+        while (true)
         {
             elapsedTime += Time.deltaTime / targetTime;
             Color color = Color.Lerp(start, end, elapsedTime);

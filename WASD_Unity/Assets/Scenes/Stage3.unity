@@ -15755,7 +15755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e457cab982585294880b04886f788fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: {fileID: 11400000, guid: 673706749120dda409034439faf01705, type: 2}
+  stage: {fileID: 11400000, guid: cbdec34dfbaafda459bc400414a75390, type: 2}
   spawnList: []
   monsterList: []
   spawnPoint: []

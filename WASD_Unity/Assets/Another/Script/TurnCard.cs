@@ -69,6 +69,9 @@ public class TurnCard : MonoBehaviour
     }
     IEnumerator Turn()
     {
+        // 카드를 선택하면 입력되지 않도록 꺼줍니다. 2022.06.03
+        cardImage.raycastTarget = false;
+
         float tick = 0f;
 
         Vector3 startScale = new Vector3(1.0f, 1.0f, 1.0f);
@@ -150,5 +153,16 @@ public class TurnCard : MonoBehaviour
 
             yield return null;
         }
+
+        // 1초정도 보여주고,
+        yield return new WaitForSeconds(1.0f);
+        //  페이드 아웃으로 화면을 가려준다.!
+        Fade fade = GameObject.FindObjectOfType<Fade>();
+        if (fade != null)
+            fade.FadeOut();
+
+
+        Invoke("SceneChange", 2.0f);
+
     }
 }

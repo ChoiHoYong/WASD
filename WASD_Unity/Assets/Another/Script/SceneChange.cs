@@ -5,13 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-    public void ChangeScene()
+    void MoveToLoadingScene()
     {
         SceneManager.LoadScene("LoadingScene");
     }
+    public void ChangeScene()
+    {
+        Fade.Instance.FadeOut();
+        Invoke("MoveToLoadingScene", 1.0f);
+    }
 
-    public void ChangeMain()
+    void MoveToMainScene()
     {
         SceneManager.LoadScene("MainScene");
+    }
+    public void ChangeMain()
+    {
+        Fade.Instance.FadeOut();
+        Invoke("MoveToMainScene", 1.0f);
     }
 }

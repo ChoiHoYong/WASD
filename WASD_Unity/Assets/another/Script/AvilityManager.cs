@@ -33,6 +33,10 @@ public class AvilityManager : MonoBehaviour
     int ntime1 = 0;
     int ntime2 = 0;
 
+    string avility1;
+    string avility2;
+    string avility3;
+
     void Start()
     {
         //커서
@@ -50,7 +54,95 @@ public class AvilityManager : MonoBehaviour
         nickname_go = GameObject.Find("NickName_input").transform.GetChild(2).gameObject;
         nickname_text = nickname_go.GetComponent<Text>();
         PlayerPrefs.SetString("NickName", nickname_text.text.ToString());
-    }
+        for(int i = 1; i <= 5; i++)
+        {
+            if (PlayerPrefs.HasKey(i + "Time"))
+            {
+                int time = PlayerPrefs.GetInt(i + "Time");
+                if (time > GameData.clearTime.Minute * 60 + GameData.clearTime.Second)
+                {
+                    switch (i)
+                    {
+                        case 1:
+                            for(int j = 1; j < 5; j++)
+                            {
+                                PlayerPrefs.SetString((j + 1) + "Name", PlayerPrefs.GetString(j + "Name"));
+                                PlayerPrefs.SetInt((j + 1)+"Time", PlayerPrefs.GetInt(j + "Time"));
+                                PlayerPrefs.SetString((j + 1) + "Avility1", PlayerPrefs.GetString(j + "Avility1"));
+                                PlayerPrefs.SetString((j + 1) + "Avility2", PlayerPrefs.GetString(j + "Avility2"));
+                                PlayerPrefs.SetString((j + 1) + "Avility3", PlayerPrefs.GetString(j + "Avility3"));
+                            }
+                            break;
+                        case 2:
+                            for (int j = 2; j < 5; j++)
+                            {
+                                PlayerPrefs.SetString((j + 1) + "Name", PlayerPrefs.GetString(j + "Name"));
+                                PlayerPrefs.SetInt((j + 1) + "Time", PlayerPrefs.GetInt(j + "Time"));
+                                PlayerPrefs.SetString((j + 1) + "Avility1", PlayerPrefs.GetString(j + "Avility1"));
+                                PlayerPrefs.SetString((j + 1) + "Avility2", PlayerPrefs.GetString(j + "Avility2"));
+                                PlayerPrefs.SetString((j + 1) + "Avility3", PlayerPrefs.GetString(j + "Avility3"));
+                            }
+                            break;
+                        case 3:
+                            for (int j = 3; j < 5; j++)
+                            {
+                                PlayerPrefs.SetString((j + 1) + "Name", PlayerPrefs.GetString(j + "Name"));
+                                PlayerPrefs.SetInt((j + 1) + "Time", PlayerPrefs.GetInt(j + "Time"));
+                                PlayerPrefs.SetString((j + 1) + "Avility1", PlayerPrefs.GetString(j + "Avility1"));
+                                PlayerPrefs.SetString((j + 1) + "Avility2", PlayerPrefs.GetString(j + "Avility2"));
+                                PlayerPrefs.SetString((j + 1) + "Avility3", PlayerPrefs.GetString(j + "Avility3"));
+                            }
+                            break;
+                        case 4:
+                            for (int j = 4; j < 5; j++)
+                            {
+                                PlayerPrefs.SetString((j + 1) + "Name", PlayerPrefs.GetString(j + "Name"));
+                                PlayerPrefs.SetInt((j + 1) + "Time", PlayerPrefs.GetInt(j + "Time"));
+                                PlayerPrefs.SetString((j + 1) + "Avility1", PlayerPrefs.GetString(j + "Avility1"));
+                                PlayerPrefs.SetString((j + 1) + "Avility2", PlayerPrefs.GetString(j + "Avility2"));
+                                PlayerPrefs.SetString((j + 1) + "Avility3", PlayerPrefs.GetString(j + "Avility3"));
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+
+                    // 이름 저장
+                    PlayerPrefs.SetString(i + "Name", nickname_text.text.ToString());
+                    // 클리어시간 저장
+                    PlayerPrefs.SetInt(i + "Time", GameData.clearTime.Minute * 60 + GameData.clearTime.Second);
+                    // 선택했던 능력 저장
+                    PlayerPrefs.SetString(i + "Avility1", avility1);
+                    PlayerPrefs.SetString(i + "Avility2", avility2);
+                    PlayerPrefs.SetString(i + "Avility3", avility3);
+                }
+                else
+                    continue;
+            }
+            else
+            {
+                // 이름 저장
+                PlayerPrefs.SetString(i + "Name", nickname_text.text.ToString());
+                // 클리어시간 저장
+                PlayerPrefs.SetInt(i + "Time", GameData.clearTime.Minute * 60 + GameData.clearTime.Second);
+                // 선택했던 능력 저장
+                PlayerPrefs.SetString(i + "Avility1", avility1);
+                PlayerPrefs.SetString(i + "Avility2", avility2);
+                PlayerPrefs.SetString(i + "Avility3", avility3);
+                break;
+            }
+
+        }
+        PlayerPrefs.DeleteKey("avility1");
+        PlayerPrefs.DeleteKey("avility2");
+        PlayerPrefs.DeleteKey("avility3");
+        GameData.currStage = 1;
+        GameData.clearTime = new DateTime(0);
+        GameData.elapsed = 0;
+        GameData.Damage = 1;
+        GameData.speed = 2.5f;
+        GameData.HP = -1;
+}
 
     public void clear_time()
     {
@@ -86,42 +178,51 @@ public class AvilityManager : MonoBehaviour
         if (PlayerPrefs.GetString("avility1") == "attack")
         {
             image1.sprite = avilities[0];
+            avility1 = "attack";
         }
         else if (PlayerPrefs.GetString("avility1") == "hp")
         {
             image1.sprite = avilities[1];
+            avility1 = "hp";
         }
         else if (PlayerPrefs.GetString("avility1") == "speed")
         {
             image1.sprite = avilities[2];
+            avility1 = "speed";
         }
 
         // 어빌리티 2번 찾고 넣기
         if (PlayerPrefs.GetString("avility2") == "attack")
         {
             image2.sprite = avilities[0];
+            avility2 = "attack";
         }
         else if (PlayerPrefs.GetString("avility2") == "hp")
         {
             image2.sprite = avilities[1];
+            avility2 = "hp";
         }
         else if (PlayerPrefs.GetString("avility2") == "speed")
         {
             image2.sprite = avilities[2];
+            avility2 = "speed";
         }
 
         // 어빌리티 3번 찾고 넣기
         if (PlayerPrefs.GetString("avility3") == "attack")
         {
             image3.sprite = avilities[0];
+            avility3 = "attack";
         }
         else if (PlayerPrefs.GetString("avility3") == "hp")
         {
             image3.sprite = avilities[1];
+            avility3 = "hp";
         }
         else if (PlayerPrefs.GetString("avility3") == "speed")
         {
             image3.sprite = avilities[2];
+            avility3 = "speed";
         }
 
         //if (GameData.avility_list[0] == "Attack")

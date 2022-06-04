@@ -18,5 +18,5 @@ MonoBehaviour:
     spawnIndex: 1
     monsterType: 1
   - spawnTime: 3
-    spawnIndex: 0
+    spawnIndex: 1
     monsterType: 2

@@ -10,8 +10,9 @@ public class SceneLoad : MonoBehaviour
     public Text loadText;
     private void Start()
     {
+        Fade.Instance.FadeIn();
         //PlayerPrefs 모든 저장 값 제거
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         StartCoroutine(LoadScene());        
     }
     IEnumerator LoadScene()

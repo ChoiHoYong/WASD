@@ -15,6 +15,8 @@ public class RankingManager : MonoBehaviour
     [SerializeField]
     public Sprite[] avilities = new Sprite[3];
 
+    
+
     //시간 선언
     private GameObject time_go;
     private Text time_text;
@@ -59,6 +61,17 @@ public class RankingManager : MonoBehaviour
     {
         Rank();
         Rank_invite();
+
+        // 타이틀 화면을 구성한 뒤에 옮겨질 내용입니다.
+        Fade fade = GameObject.FindObjectOfType<Fade>();
+        if( fade == null )
+        {
+            fade = Instantiate(Resources.Load<Fade>("Prefabs/Fade"));
+            fade.Init();
+            // 신이 변경되더라도 파괴되지 않도록 처리합니다.
+            DontDestroyOnLoad(fade.gameObject);
+        }
+        //PlayerPrefs.DeleteAll();
     }
 
     void Update()
@@ -68,67 +81,95 @@ public class RankingManager : MonoBehaviour
 
     void Rank()
     {
-        //순위 예시
-        rank_list1.Add("Hoyong");
-        rank_list1.Add("01:00");
-        rank_list1.Add("attack");
-        rank_list1.Add("attack");
-        rank_list1.Add("speed");
-        int_list1.Add(01);
-        int_list1.Add(00);
+        if (PlayerPrefs.HasKey("1Time"))
+        {
+            string name1 = PlayerPrefs.GetString("1Name");
+            int time1 = PlayerPrefs.GetInt("1Time");
+            string avility1_1 = PlayerPrefs.GetString("1Avility1");
+            string avility1_2 = PlayerPrefs.GetString("1Avility2");
+            string avility1_3 = PlayerPrefs.GetString("1Avility3");
+            rank_list1.Add(name1);
+            rank_list1.Add(time1 / 60 + " : " + time1 % 60);
+            rank_list1.Add(avility1_1);
+            rank_list1.Add(avility1_2);
+            rank_list1.Add(avility1_3);
+        }
+        else
+        {
+            rank_list1.Add("asd");
+            rank_list1.Add("03:00");
+            rank_list1.Add("speed");
+            rank_list1.Add("attack");
+            rank_list1.Add("hp");
+        }
+        if (PlayerPrefs.HasKey("2Time"))
+        {
+            string name2 = PlayerPrefs.GetString("2Name");
+            int time2 = PlayerPrefs.GetInt("2Time");
+            string avility2_1 = PlayerPrefs.GetString("2Avility1");
+            string avility2_2 = PlayerPrefs.GetString("2Avility2");
+            string avility2_3 = PlayerPrefs.GetString("2Avility3");
 
-        rank_list2.Add("fjfj");
-        rank_list2.Add("02:00");
-        rank_list2.Add("attack");
-        rank_list2.Add("speed");
-        rank_list2.Add("speed");
-        int_list2.Add(02);
-        int_list2.Add(00);
-
+            rank_list2.Add(name2);
+            rank_list2.Add(time2 / 60 + " : " + time2 % 60);
+            rank_list2.Add(avility2_1);
+            rank_list2.Add(avility2_2);
+            rank_list2.Add(avility2_3);
+        }
+        //int_list2.Add(02);
+        //int_list2.Add(00);
+        else
+        {
+            rank_list2.Add("asd");
+            rank_list2.Add("03:00");
+            rank_list2.Add("speed");
+            rank_list2.Add("attack");
+            rank_list2.Add("hp");
+        }
         rank_list3.Add("asd");
         rank_list3.Add("03:00");
         rank_list3.Add("speed");
         rank_list3.Add("attack");
         rank_list3.Add("hp");
-        int_list3.Add(03);
-        int_list3.Add(00);
+        //int_list3.Add(03);
+        //int_list3.Add(00);
 
         rank_list4.Add("qwer");
         rank_list4.Add("04:00");
         rank_list4.Add("hp");
         rank_list4.Add("hp");
         rank_list4.Add("speed");
-        int_list4.Add(04);
-        int_list4.Add(00);
+        //int_list4.Add(04);
+        //int_list4.Add(00);
 
         rank_list5.Add("Hog");
         rank_list5.Add("05:00");
         rank_list5.Add("attack");
         rank_list5.Add("hp");
         rank_list5.Add("speed");
-        int_list5.Add(05);
-        int_list5.Add(00);
+        //int_list5.Add(05);
+        //int_list5.Add(00);
 
         //문자열 자르기 (시간)
-        stime = PlayerPrefs.GetString("Time");
-        stime_sp = stime.Split(":");
-        try
-        {
-            ntime1 = Int32.Parse(stime_sp[0]);
-        }
-        catch (Exception Ex)
-        {
-            //Display some message, that the conversion has failed.         
-        }
-        try
-        {
+        //stime = PlayerPrefs.GetString("Time");
+        //stime_sp = stime.Split(":");
+        //try
+        //{
+        //    ntime1 = Int32.Parse(stime_sp[0]);
+        //}
+        //catch (Exception Ex)
+        //{
+        //    //Display some message, that the conversion has failed.         
+        //}
+        //try
+        //{
             
-            ntime2 = Int32.Parse(stime_sp[1]);
-        }
-        catch (Exception Ex)
-        {
-            //Display some message, that the conversion has failed.         
-        }
+        //    ntime2 = Int32.Parse(stime_sp[1]);
+        //}
+        //catch (Exception Ex)
+        //{
+        //    //Display some message, that the conversion has failed.         
+        //}
 
 
         //결과값 temp 담기
@@ -141,26 +182,26 @@ public class RankingManager : MonoBehaviour
         //int_temp.Add(ntime2);
 
         //temp 검사
-        if (ntime1 == int_list4[0]) // 4분대
-        {
-            nrank = 5;
-        }
-        else if (ntime1 == int_list3[0]) //3분대
-        {
-            nrank = 4;
-        }
-        else if (ntime1 == int_list2[0]) // 2분대
-        {
-            nrank = 3;
-        }
-        else if (ntime1 == int_list1[0]) // 1분대
-        {
-            nrank = 2;
-        }
-        else if (ntime1 < int_list1[0]) // 1분 미만
-        {
-            nrank = 1;
-        }
+        //if (ntime1 == int_list4[0]) // 4분대
+        //{
+        //    nrank = 5;
+        //}
+        //else if (ntime1 == int_list3[0]) //3분대
+        //{
+        //    nrank = 4;
+        //}
+        //else if (ntime1 == int_list2[0]) // 2분대
+        //{
+        //    nrank = 3;
+        //}
+        //else if (ntime1 == int_list1[0]) // 1분대
+        //{
+        //    nrank = 2;
+        //}
+        //else if (ntime1 < int_list1[0]) // 1분 미만
+        //{
+        //    nrank = 1;
+        //}
 
         //temp 넣기
         switch (nrank)
