@@ -139,7 +139,7 @@ public class TurnCard : MonoBehaviour
             }
             choice = true;
         }
-        isFront = !isFront;
+        //isFront = !isFront;
 
         tick = 0f;
 
