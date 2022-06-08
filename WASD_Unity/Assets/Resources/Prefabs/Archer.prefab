@@ -1237,7 +1237,7 @@ MonoBehaviour:
   current: 0
   target: {fileID: 0}
   attackTime: 3
-  attackDistance: 6
+  attackDistance: 12
   skillList: []
   currSkill:
     update: 0

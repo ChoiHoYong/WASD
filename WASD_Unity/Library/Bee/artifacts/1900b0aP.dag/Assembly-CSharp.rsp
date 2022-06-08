@@ -96,7 +96,6 @@
 -define:ENABLE_MONO
 -define:NET_STANDARD_2_0
 -define:NET_STANDARD
--define:UNITY_PRO_LICENSE
 -define:ENABLE_CUSTOM_RENDER_TEXTURE
 -define:ENABLE_DIRECTOR
 -define:ENABLE_LOCALIZATION
@@ -297,7 +296,7 @@
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.VRModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.WindModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.XRModule.dll"
--r:"C:/Users/최호원/Documents/GitHub/WASD/WASD_Unity/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/AOT/Newtonsoft.Json.dll"
+-r:"C:/Users/xpfjs/OneDrive/문서/GitHub/WASD/WASD_Unity/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/AOT/Newtonsoft.Json.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.Postprocessing.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.Services.Core.Analytics.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.Services.Core.Environments.ref.dll"
@@ -424,9 +423,9 @@
 "Assets/Scripts/SpawnPoint.cs"
 "Assets/Scripts/SpawnScriptableObject.cs"
 "Assets/Scripts/StageManager.cs"
-"Assets/Scripts/TSingleton.cs"
 "Assets/Scripts/UIHelper.cs"
 "Assets/Scripts/UtilHelper.cs"
+"Assets/Scripts/Wave.cs"
 "Assets/Suriyun/Scripts/AnimatorController.cs"
 "Assets/Suriyun/Scripts/MouseOrbitImproved.cs"
 "Assets/미니맵리소스/AdvancedFPSRadar/Scripts/DemoScripts/NPC_Wandering.cs"

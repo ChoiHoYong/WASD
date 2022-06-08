@@ -8,6 +8,7 @@ public class GameTimer : MonoBehaviour
 {
     private DateTime prevTime;
     private TMP_Text timeText;
+    private TMP_Text wave;
     private TimeSpan elapsed;
     private DateTime total;
     private int second;
@@ -31,7 +32,5 @@ public class GameTimer : MonoBehaviour
             total = GameData.clearTime + elapsed;
             timeText.text = total.ToString($"mm\\:ss");
         }
-
-
     }
 }

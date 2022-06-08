@@ -55,6 +55,20 @@ public class IngameUI : MonoBehaviour
     }
     void ChangeMain()
     {
+        PlayerPrefs.DeleteKey("avility1");
+        PlayerPrefs.DeleteKey("avility2");
+        PlayerPrefs.DeleteKey("avility3");
+        GameData.currStage = 1;
+        GameData.clearTime = new System.DateTime(0);
+        GameData.elapsed = 0;
+        GameData.Damage = 1;
+        GameData.speed = 2.5f;
+        GameData.HP = -1;
+
+        //Ä¿¼­
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         SceneManager.LoadSceneAsync("MainScene");
     }
 }

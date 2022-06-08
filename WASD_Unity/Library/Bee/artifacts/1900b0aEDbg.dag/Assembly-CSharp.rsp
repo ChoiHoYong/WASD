@@ -460,6 +460,7 @@
 "Assets/Scripts/SpawnList.cs"
 "Assets/Scripts/SpawnPoint.cs"
 "Assets/Scripts/SpawnScriptableObject.cs"
+"Assets/Scripts/Stage.cs"
 "Assets/Scripts/StageManager.cs"
 "Assets/Scripts/UIHelper.cs"
 "Assets/Scripts/UtilHelper.cs"

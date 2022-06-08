@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class AvilityManager : MonoBehaviour
 {
+    GameObject audio;
     //Sprite 능력 모음
     [SerializeField]
     public Sprite[] avilities = new Sprite[3];
@@ -46,7 +47,9 @@ public class AvilityManager : MonoBehaviour
         avility_choice();
         
         clear_time();
-
+        audio = GameObject.Find("GameAudioManager");
+        if (audio != null)
+            Destroy(audio);
     }
 
     public void Input_Text()
@@ -54,89 +57,72 @@ public class AvilityManager : MonoBehaviour
         nickname_go = GameObject.Find("NickName_input").transform.GetChild(2).gameObject;
         nickname_text = nickname_go.GetComponent<Text>();
         PlayerPrefs.SetString("NickName", nickname_text.text.ToString());
-        bool isRecord = true;
-        while (isRecord)
+        bool isRecord = false;
+        for (int i = 1; i <= 5; i++)
         {
-            for (int i = 1; i <= 5; i++)
+            if (PlayerPrefs.HasKey(i + "Time"))
             {
-                if (PlayerPrefs.HasKey(i + "Time"))
+                int time = PlayerPrefs.GetInt(i + "Time");
+                if (time > GameData.clearTime.Minute * 60 + GameData.clearTime.Second)
                 {
-                    int time = PlayerPrefs.GetInt(i + "Time");
-                    if (time > GameData.clearTime.Minute * 60 + GameData.clearTime.Second)
+                    switch (i)
                     {
-                        switch (i)
-                        {
-                            case 1:
-                                for (int j = 5; j > 1; j--)
+                        case 1:
+                            for (int j = 5; j > 1; j--)
+                            {
+                                if (PlayerPrefs.HasKey((j - 1) + "Time"))
                                 {
-                                    if (PlayerPrefs.HasKey((j - 1) + "Time"))
-                                    {
-                                        PlayerPrefs.SetString(j + "Name", PlayerPrefs.GetString((j - 1) + "Name"));
-                                        PlayerPrefs.SetInt(j + "Time", PlayerPrefs.GetInt((j - 1) + "Time"));
-                                        PlayerPrefs.SetString(j + "Avility1", PlayerPrefs.GetString((j - 1) + "Avility1"));
-                                        PlayerPrefs.SetString(j + "Avility2", PlayerPrefs.GetString((j - 1) + "Avility2"));
-                                        PlayerPrefs.SetString(j + "Avility3", PlayerPrefs.GetString((j - 1) + "Avility3"));
-                                    }
+                                    PlayerPrefs.SetString(j + "Name", PlayerPrefs.GetString((j - 1) + "Name"));
+                                    PlayerPrefs.SetInt(j + "Time", PlayerPrefs.GetInt((j - 1) + "Time"));
+                                    PlayerPrefs.SetString(j + "Avility1", PlayerPrefs.GetString((j - 1) + "Avility1"));
+                                    PlayerPrefs.SetString(j + "Avility2", PlayerPrefs.GetString((j - 1) + "Avility2"));
+                                    PlayerPrefs.SetString(j + "Avility3", PlayerPrefs.GetString((j - 1) + "Avility3"));
                                 }
-                                break;
-                            case 2:
-                                for (int j = 5; j > 2; j--)
+                            }
+                            break;
+                        case 2:
+                            for (int j = 5; j > 2; j--)
+                            {
+                                if (PlayerPrefs.HasKey((j - 1) + "Time"))
                                 {
-                                    if (PlayerPrefs.HasKey((j - 1) + "Time"))
-                                    {
-                                        PlayerPrefs.SetString(j + "Name", PlayerPrefs.GetString((j - 1) + "Name"));
-                                        PlayerPrefs.SetInt(j + "Time", PlayerPrefs.GetInt((j - 1) + "Time"));
-                                        PlayerPrefs.SetString(j + "Avility1", PlayerPrefs.GetString((j - 1) + "Avility1"));
-                                        PlayerPrefs.SetString(j + "Avility2", PlayerPrefs.GetString((j - 1) + "Avility2"));
-                                        PlayerPrefs.SetString(j + "Avility3", PlayerPrefs.GetString((j - 1) + "Avility3"));
-                                    }
+                                    PlayerPrefs.SetString(j + "Name", PlayerPrefs.GetString((j - 1) + "Name"));
+                                    PlayerPrefs.SetInt(j + "Time", PlayerPrefs.GetInt((j - 1) + "Time"));
+                                    PlayerPrefs.SetString(j + "Avility1", PlayerPrefs.GetString((j - 1) + "Avility1"));
+                                    PlayerPrefs.SetString(j + "Avility2", PlayerPrefs.GetString((j - 1) + "Avility2"));
+                                    PlayerPrefs.SetString(j + "Avility3", PlayerPrefs.GetString((j - 1) + "Avility3"));
                                 }
-                                break;
-                            case 3:
-                                for (int j = 5; j > 3; j--)
+                            }
+                            break;
+                        case 3:
+                            for (int j = 5; j > 3; j--)
+                            {
+                                if (PlayerPrefs.HasKey((j - 1) + "Time"))
                                 {
-                                    if (PlayerPrefs.HasKey((j - 1) + "Time"))
-                                    {
-                                        PlayerPrefs.SetString(j + "Name", PlayerPrefs.GetString((j - 1) + "Name"));
-                                        PlayerPrefs.SetInt(j + "Time", PlayerPrefs.GetInt((j - 1) + "Time"));
-                                        PlayerPrefs.SetString(j + "Avility1", PlayerPrefs.GetString((j - 1) + "Avility1"));
-                                        PlayerPrefs.SetString(j + "Avility2", PlayerPrefs.GetString((j - 1) + "Avility2"));
-                                        PlayerPrefs.SetString(j + "Avility3", PlayerPrefs.GetString((j - 1) + "Avility3"));
-                                    }
+                                    PlayerPrefs.SetString(j + "Name", PlayerPrefs.GetString((j - 1) + "Name"));
+                                    PlayerPrefs.SetInt(j + "Time", PlayerPrefs.GetInt((j - 1) + "Time"));
+                                    PlayerPrefs.SetString(j + "Avility1", PlayerPrefs.GetString((j - 1) + "Avility1"));
+                                    PlayerPrefs.SetString(j + "Avility2", PlayerPrefs.GetString((j - 1) + "Avility2"));
+                                    PlayerPrefs.SetString(j + "Avility3", PlayerPrefs.GetString((j - 1) + "Avility3"));
                                 }
-                                break;
-                            case 4:
-                                for (int j = 5; j > 4; j--)
+                            }
+                            break;
+                        case 4:
+                            for (int j = 5; j > 4; j--)
+                            {
+                                if (PlayerPrefs.HasKey((j - 1) + "Time"))
                                 {
-                                    if (PlayerPrefs.HasKey((j - 1) + "Time"))
-                                    {
-                                        PlayerPrefs.SetString(j + "Name", PlayerPrefs.GetString((j - 1) + "Name"));
-                                        PlayerPrefs.SetInt(j + "Time", PlayerPrefs.GetInt((j - 1) + "Time"));
-                                        PlayerPrefs.SetString(j + "Avility1", PlayerPrefs.GetString((j - 1) + "Avility1"));
-                                        PlayerPrefs.SetString(j + "Avility2", PlayerPrefs.GetString((j - 1) + "Avility2"));
-                                        PlayerPrefs.SetString(j + "Avility3", PlayerPrefs.GetString((j - 1) + "Avility3"));
-                                    }
+                                    PlayerPrefs.SetString(j + "Name", PlayerPrefs.GetString((j - 1) + "Name"));
+                                    PlayerPrefs.SetInt(j + "Time", PlayerPrefs.GetInt((j - 1) + "Time"));
+                                    PlayerPrefs.SetString(j + "Avility1", PlayerPrefs.GetString((j - 1) + "Avility1"));
+                                    PlayerPrefs.SetString(j + "Avility2", PlayerPrefs.GetString((j - 1) + "Avility2"));
+                                    PlayerPrefs.SetString(j + "Avility3", PlayerPrefs.GetString((j - 1) + "Avility3"));
                                 }
-                                break;
-                            default:
-                                break;
-                        }
-
-                        // 이름 저장
-                        PlayerPrefs.SetString(i + "Name", nickname_text.text.ToString());
-                        // 클리어시간 저장
-                        PlayerPrefs.SetInt(i + "Time", GameData.clearTime.Minute * 60 + GameData.clearTime.Second);
-                        // 선택했던 능력 저장
-                        PlayerPrefs.SetString(i + "Avility1", avility1);
-                        PlayerPrefs.SetString(i + "Avility2", avility2);
-                        PlayerPrefs.SetString(i + "Avility3", avility3);
-                        isRecord = false;
+                            }
+                            break;
+                        default:
+                            break;
                     }
-                    else
-                        continue;
-                }
-                else
-                {
+
                     // 이름 저장
                     PlayerPrefs.SetString(i + "Name", nickname_text.text.ToString());
                     // 클리어시간 저장
@@ -145,10 +131,25 @@ public class AvilityManager : MonoBehaviour
                     PlayerPrefs.SetString(i + "Avility1", avility1);
                     PlayerPrefs.SetString(i + "Avility2", avility2);
                     PlayerPrefs.SetString(i + "Avility3", avility3);
-                    isRecord = false;
+                    isRecord = true;
                 }
-
+                else
+                    continue;
             }
+            else
+            {
+                // 이름 저장
+                PlayerPrefs.SetString(i + "Name", nickname_text.text.ToString());
+                // 클리어시간 저장
+                PlayerPrefs.SetInt(i + "Time", GameData.clearTime.Minute * 60 + GameData.clearTime.Second);
+                // 선택했던 능력 저장
+                PlayerPrefs.SetString(i + "Avility1", avility1);
+                PlayerPrefs.SetString(i + "Avility2", avility2);
+                PlayerPrefs.SetString(i + "Avility3", avility3);
+                isRecord = true;
+            }
+            if(isRecord == true)
+                break;
         }
         PlayerPrefs.DeleteKey("avility1");
         PlayerPrefs.DeleteKey("avility2");

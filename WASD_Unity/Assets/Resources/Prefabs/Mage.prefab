@@ -697,18 +697,16 @@ MonoBehaviour:
   current: 0
   target: {fileID: 0}
   attackTime: 3
-  attackDistance: 5
+  attackDistance: 9
   skillList: []
   currSkill:
     update: 0
     execute: 0
     coolTime: 10
     elapsedTime: 0
-    skillTrigger: Attack2
     skillDist: 3
     waitTime: 2
     waitingElap: 0
-    skillState: 4
   slashParticle: {fileID: 0}
   slashPathList: []
 --- !u!114 &1709710394937473503

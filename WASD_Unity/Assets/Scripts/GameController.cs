@@ -40,6 +40,8 @@ public class GameController : MonoBehaviour
 
         StageManager mng = GameObject.FindObjectOfType<StageManager>();
         mng.Init();
+        Stage stage = GameObject.FindObjectOfType<Stage>();
+        stage.Init();
 
         // 몬스터의 정보값으로 초기화합니다.
         ingameUI.SetMonster(mng.spawnList);
@@ -55,7 +57,14 @@ public class GameController : MonoBehaviour
         // 게임뷰에 커서를 락을 걸고, 보이지 않도록 처리합니다.
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
+        Fade fade = GameObject.FindObjectOfType<Fade>();
+        if (fade == null)
+        {
+            fade = Instantiate(Resources.Load<Fade>("Prefabs/Fade"));
+            fade.Init();
+            // 신이 변경되더라도 파괴되지 않도록 처리합니다.
+            DontDestroyOnLoad(fade.gameObject);
+        }
         Fade.Instance.FadeIn();
 
         GameAudioManager.Instance.Setting();
