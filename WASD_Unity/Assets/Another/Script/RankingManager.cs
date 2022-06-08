@@ -10,6 +10,9 @@ using UnityEngine.UI;
 
 public class RankingManager : MonoBehaviour
 {
+    //메인화면 오디오 죽이기
+    GameObject audio;
+
     //Sprite 능력 모음
     [SerializeField]
     public Sprite[] avilities = new Sprite[3];
@@ -32,7 +35,11 @@ public class RankingManager : MonoBehaviour
 
     void Start()
     {
-        
+        //메인화면 오디오 죽이기
+        audio = GameObject.Find("GameAudioManager");
+        if (audio != null)
+            Destroy(audio);
+
         Rank_invite();
 
         // 타이틀 화면을 구성한 뒤에 옮겨질 내용입니다.

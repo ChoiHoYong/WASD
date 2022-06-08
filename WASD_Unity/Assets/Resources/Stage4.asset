@@ -15,8 +15,11 @@ MonoBehaviour:
   spawnCount: 5
   spawnList:
   - spawnTime: 3
-    spawnIndex: 1
-    monsterType: 0
+    spawnIndex: 2
+    monsterType: 3
   - spawnTime: 3
     spawnIndex: 1
+    monsterType: 3
+  - spawnTime: 3
+    spawnIndex: 0
     monsterType: 3

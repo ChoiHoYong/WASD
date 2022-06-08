@@ -17,3 +17,21 @@ MonoBehaviour:
   - spawnTime: 3
     spawnIndex: 0
     monsterType: 0
+  - spawnTime: 3
+    spawnIndex: 1
+    monsterType: 0
+  - spawnTime: 3
+    spawnIndex: 2
+    monsterType: 0
+  - spawnTime: 3
+    spawnIndex: 1
+    monsterType: 1
+  - spawnTime: 3
+    spawnIndex: 2
+    monsterType: 1
+  - spawnTime: 3
+    spawnIndex: 1
+    monsterType: 2
+  - spawnTime: 3
+    spawnIndex: 2
+    monsterType: 2
