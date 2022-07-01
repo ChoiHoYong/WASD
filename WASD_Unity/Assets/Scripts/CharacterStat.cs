@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterStat : MonoBehaviour
 {
     [SerializeField]
-    public int HP;
+    public int HP = 3;
     // 모델 컴포넌트의 초기화는 컨트롤러에서 한 번 초기화 해줍니다.
     public Model model;
     private bool isDead = false;

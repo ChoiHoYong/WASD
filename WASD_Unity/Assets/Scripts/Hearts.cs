@@ -14,7 +14,6 @@ public class Hearts : MonoBehaviour
             heart = GameObject.Find(i.ToString());
             if (i > GameData.HP)
                 Destroy(heart);
-                
         }
         for(int i = 0; i < transform.childCount; ++i)
         {

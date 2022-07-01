@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
 {
     Controller controller;
     CharacterStat characterStat;
+    static Fade fade;
     void GameStart()
     {
         //GameAudioManager.Instance.Setting();
@@ -71,7 +72,6 @@ public class GameController : MonoBehaviour
 
         // 페이드 인이 완료된 이후에 캐릭터와 몬스터 생성 준비를 시작합니다.
         Invoke("GameStart", 1.0f);
-        //Debug.Log(GameData.HP);
     }
 
 
